@@ -12,7 +12,7 @@
     header('Access-Control-Allow-Origin: *');  
     header('Content-Type: application/json');
 
-    require_once("../config/conexionAsignatura.php");
+    require_once("../config/conexion.php");
     require_once("../models/Asignatura_E.php");
 
     $asignatura = new Asignatura();
