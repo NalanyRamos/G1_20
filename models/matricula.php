@@ -41,7 +41,7 @@ class Matricula extends Conectar{
     public function update_matricula($codigo_matricula, $nombre_asignatura, $numero_alumno, $fecha_matricula, $numero_docente, $carrera, $numero_edificio){
         $conectar= parent::conexion();
         parent::set_names();
-        $sql="UPDATE matricula SET CODIGOMATRICULA=?,NOMBREASIGNATURA=?,NUMEROALUMNO=?,FECHAMATRICULA=?,NUMERODOCENTE=?,CARRERA=?,NUMEROEDIFICIO=? WHERE CODIGOMATRICULA=?;";
+        $sql="UPDATE matricula SET NOMBREASIGNATURA=?,NUMEROALUMNO=?,FECHAMATRICULA=?,NUMERODOCENTE=?,CARRERA=?,NUMEROEDIFICIO=? WHERE CODIGOMATRICULA=?;";
         $sql=$conectar->prepare($sql);
         $sql->bindValue(1, $nombre_asignatura);
         $sql->bindValue(2, $numero_alumno);
