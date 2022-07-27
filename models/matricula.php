@@ -4,7 +4,7 @@ class Matricula extends Conectar{
     public function get_matriculas(){
         $conectar= parent::conexion();
         parent::set_names();
-        $sql="SELECT * FROM matricula ";
+        $sql="SELECT * FROM matricula";
         $sql=$conectar->prepare($sql);
         $sql->execute();
         return $resultado=$sql->fetchAll(PDO::FETCH_ASSOC);
@@ -13,8 +13,9 @@ class Matricula extends Conectar{
     public function get_matricula($codigo_matricula){
         $conectar= parent::conexion();
         parent::set_names();
-        $sql="SELECT * FROM matricula WHERE CODIGOMATRICULA = ?";
+        $sql="SELECT * FROM matricula WHERE CODIGOMATRICULA=?;";
         $sql=$conectar->prepare($sql);
+        $sql->bindValue(1,$codigo_matricula);
         $sql->execute();
         return $resultado=$sql->fetchAll(PDO::FETCH_ASSOC);
 
@@ -24,7 +25,7 @@ class Matricula extends Conectar{
         $conectar= parent::conexion();
         parent::set_names();
         $sql="INSERT INTO matricula(CODIGOMATRICULA,NOMBREASIGNATURA,NUMEROALUMNO,FECHAMATRICULA,NUMERODOCENTE,CARRERA,NUMEROEDIFICIO)
-        VALUES (?,?,?,?,?,?,?) ";
+        VALUES (?,?,?,?,?,?,?);";
         $sql=$conectar->prepare($sql);
         $sql->bindValue(1, $codigo_matricula);
         $sql->bindValue(2, $nombre_asignatura);
@@ -56,7 +57,7 @@ class Matricula extends Conectar{
     public function delete_matricula($codigo_matricula){
         $conectar= parent::conexion();
         parent::set_names();
-        $sql="DELETE FROM matricula WHERE CODIGOMATRICULA = ?";
+        $sql="DELETE FROM matricula WHERE CODIGOMATRICULA = ?;";
         $sql=$conectar->prepare($sql);
         $sql->bindValue(1, $codigo_matricula);
         $sql->execute();
